@@ -20,3 +20,11 @@
     gap: 10px;
     align-items: center;
 }
+
+.submit-button {
+    background-color: #4CAF50;
+}
+  
+.submit-button:hover {
+    background-color: #3e8e41;
+}

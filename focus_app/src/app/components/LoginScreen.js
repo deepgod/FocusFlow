@@ -12,7 +12,7 @@ export const LoginScreen = () => {
         <form action="#">
             <input type="text" name="username" id="username" placeholder="Username" required />
             <input type="password" name="password" id="password" placeholder="Password" required />
-            <button type="submit">Sign In</button>
+            <button type="submit" className="submit-button">Sign In</button>
         </form>
         </div>
     </div>
