@@ -21,7 +21,9 @@ export const AddItem = () => {
         <label htmlFor="contentTextarea">Content:</label>
         <textarea rows="4" cols="50" id="contentTextarea"></textarea>
       </div>
-    </div>
+       {/* Create button */}
+    <button>Create</button>
+    </div>  
   );
 };
 
