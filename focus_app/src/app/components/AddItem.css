@@ -1,27 +1,54 @@
-.input {
-    margin: 2rem auto;
-    padding: 1rem;
-    width: 90%;
-    max-width: 40rem;
-  }
-  
-  label {
-    display: block;
-    font-weight: bold;
-    margin-bottom: 0.5rem;
-    color: #000; 
-  }
-  
-  .input input {
-    font: inherit;
-    display: block;
-    width: 100%;
-    border: 1px solid #ccc;
-    padding: 0.15rem;
-    margin-bottom: 0.5rem;
-  }
-  
-  .input input:focus {
-    outline: none;
-    border-color: #5f0026;
-  }
+.container {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9; /* Light gray background */
+}
+
+.container div {
+  margin-bottom: 10px;
+}
+
+.container label {
+  display: block;
+  font-weight: bold;
+  color: #333; /* Dark gray text color */
+}
+
+.container input[type="text"],
+.container textarea {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.container textarea {
+  resize: vertical;
+}
+
+.container input[type="text"]:focus,
+.container textarea:focus {
+  border-color: #007bff; /* Blue border color when focused */
+  outline: none; /* Remove default focus outline */
+}
+
+.container textarea {
+  min-height: 100px; /* Set minimum height for textarea */
+}
+
+.container button {
+  background-color: #007bff; /* Blue button background color */
+  color: #fff; /* White button text color */
+  padding: 8px 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.container button:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+}
+
