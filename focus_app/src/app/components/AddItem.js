@@ -3,7 +3,7 @@ import styles from "./AddItem.css";
 
 export const AddItem = () => {
   return (
-    <div>
+    <div className="addItemContainer">
       {/* Title component */}
       <div>
         <label htmlFor="titleTextbox">Title:</label>
@@ -22,9 +22,10 @@ export const AddItem = () => {
         <textarea rows="4" cols="50" id="contentTextarea"></textarea>
       </div>
        {/* Create button */}
-    <button>Create</button>
+      <button>Create</button>
     </div>  
   );
 };
+
 
 
