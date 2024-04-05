@@ -11,6 +11,7 @@ export default function Home() {
       <Navbar />
       <h1>Test2</h1>
       <LoginScreen />
+      <h1> AddItem Page</h1>
       <AddItem />
     </div>
   );
