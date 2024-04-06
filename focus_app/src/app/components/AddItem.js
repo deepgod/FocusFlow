@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./AddItem.css";
 
-export const AddItem = () => {
+const AddItem = () => {
   return (
     <div className="addItemContainer">
       {/* Title component */}
@@ -26,6 +26,4 @@ export const AddItem = () => {
     </div>  
   );
 };
-
-
-
+ export default AddItem;
