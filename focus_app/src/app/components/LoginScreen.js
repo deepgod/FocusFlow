@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from "./LoginScreen.module.css";
 
-export const LoginScreen = () => {
+const LoginScreen = () => {
   return (
     <div className={styles.container}>
       <div className={styles.welcome}>
@@ -18,3 +18,5 @@ export const LoginScreen = () => {
     </div>
   );
 };
+
+export default LoginScreen;
