@@ -1,0 +1,4 @@
+.buttonList {
+    display: flex;
+    flex-direction: column;
+}
