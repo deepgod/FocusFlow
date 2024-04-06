@@ -24,7 +24,7 @@ const AddItem = () => {
  export default AddItem;
  */
 
- import React from "react";
+import React from "react";
 import styles from './AddItem.module.css';
 
 const AddItem = () => {
