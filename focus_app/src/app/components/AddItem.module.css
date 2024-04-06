@@ -64,7 +64,6 @@
   border-radius: 10px;
 }
 
-/* Form components */
 .addItemContainer div {
   margin-bottom: 10px;
 }
@@ -81,7 +80,7 @@
   border: 1px solid #ccc;
   border-radius: 4px;
   box-sizing: border-box;
-  color: black; /* Reset text color for input and textarea */
+  color: black; 
 }
 
 .addItemContainer textarea {
