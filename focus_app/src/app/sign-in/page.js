@@ -1,13 +1,20 @@
 'use client'
-import React from 'react';
+import React, { useEffect } from 'react';
 import Navbar from '../components/Navbar';
 import LoginScreen from '../components/LoginScreen';
+import styles from './page.css'
 
 export default function Home() {
+  // Adds a class to the body element when the component mounts
+  useEffect(() => {
+    document.body.classList.add('centered-page');
+    return () => {
+      document.body.classList.remove('centered-page');
+    };
+  }, []);
+
   return (
-    <div> 
-      <Navbar />
-      <h1> Login</h1>
+    <div className={styles.container}>
       <LoginScreen />
     </div>
   );

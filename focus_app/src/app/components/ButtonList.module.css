@@ -1,4 +1,10 @@
+/* ButtonList.module.css */
 .buttonList {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Adjust margin-bottom for better spacing between buttons */
+.buttonList > * {
+  margin-bottom: 10px;
 }

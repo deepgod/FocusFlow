@@ -1,6 +1,6 @@
 .navbar {
-    background-color: #202124;
-    color: white;
+    background-color: #ffffff;
+    color: #5f6368;
     display: flex;
     justify-content: space-between;
     padding: 1rem 2rem;
@@ -26,12 +26,12 @@
     left: 0;
     right: 0;
     height: 2.5px;
-    background-color: #5f6368;
+    background-color: #dadce0;
   }
 
 .navbar button {
-    background-color: white;
-    color: black;
+    background-color: #007bff;
+    color: white;
     padding: 10px 15px;
     border: none;
     border-radius: 5px;
@@ -45,7 +45,7 @@
 }
 
 .navbar button:hover {
-    background-color: #a9a9a9;
+    background-color: #0056b3;
 }
 
 .navbar button img {
