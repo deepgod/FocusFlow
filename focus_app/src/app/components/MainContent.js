@@ -1,4 +1,3 @@
-// MainContent.js
 import React from 'react';
 import ButtonList from './ButtonList';
 import StickyNote from './StickyNote';
