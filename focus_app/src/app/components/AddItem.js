@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./AddItem.css";
+import styles from "./AddItem.module.css";
 
 const AddItem = () => {
   return (
