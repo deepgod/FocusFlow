@@ -1,0 +1,103 @@
+/*
+.container {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9; 
+}
+
+.container div {
+  margin-bottom: 10px;
+}
+
+.container label {
+  display: block;
+  font-weight: bold;
+  color: #333; 
+}
+
+.container input[type="text"],
+.container textarea {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.container textarea {
+  resize: vertical;
+}
+
+.container input[type="text"]:focus,
+.container textarea:focus {
+  border-color: #007bff; 
+  outline: none; 
+
+.container textarea {
+  min-height: 100px; 
+}
+
+.container button {
+  background-color: #007bff; 
+  color: #fff; 
+  padding: 8px 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.container button:hover {
+  background-color: #0056b3;
+}
+*/
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  align-items: center;
+  background-color: #f0f0f0;
+  width: 80%;
+  height: 80%;
+  border-radius: 10px;
+}
+
+/* Form components */
+.addItemContainer div {
+  margin-bottom: 10px;
+}
+
+.addItemContainer label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.addItemContainer input[type="text"],
+.addItemContainer textarea {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  color: black; /* Reset text color for input and textarea */
+}
+
+.addItemContainer textarea {
+  resize: vertical;
+}
+
+/* Create button */
+.addItemContainer button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.addItemContainer button:hover {
+  background-color: #0056b3;
+}
