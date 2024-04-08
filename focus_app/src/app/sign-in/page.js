@@ -18,8 +18,6 @@ export default function Home() {
   return (
     <div className={styles.container}>
       <LoginScreen />
-      <Profile />
-      <ProfilePage />
     </div>
   );
 };
