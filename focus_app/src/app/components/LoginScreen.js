@@ -1,12 +1,15 @@
 import React from 'react';
 import styles from "./LoginScreen.module.css";
 import { useAuth } from './authContext';
+import { useRouter } from "next/navigation";
 
 const LoginScreen = () => {
+  const router = useRouter();
   const { setIsLoggedIn } = useAuth();
 
   const handleSignIn = () => {
     setIsLoggedIn(true);
+    router.push("/home");
   };
 
   return (
