@@ -1,7 +1,14 @@
 import React from 'react';
 import styles from "./LoginScreen.module.css";
+import { useAuth } from './authContext';
 
 const LoginScreen = () => {
+  const { setIsLoggedIn } = useAuth();
+
+  const handleSignIn = () => {
+    setIsLoggedIn(true);
+  };
+
   return (
     <div className={styles.container}>
       <div className={styles.welcome}>
@@ -12,7 +19,7 @@ const LoginScreen = () => {
         <form action="#">
             <input type="text" name="username" id="username" placeholder="Username" required />
             <input type="password" name="password" id="password" placeholder="Password" required />
-            <button type="submit" className={styles.submitButton}>Sign In</button>
+            <button type="submit" onClick={handleSignIn} className={styles.submitButton}>Sign In</button>
         </form>
         </div>
     </div>

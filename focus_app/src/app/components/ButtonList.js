@@ -7,7 +7,7 @@ const ButtonList = () => {
   const router = useRouter();
   const [buttons, setButtons] = useState([
     { id: 1, label: 'Add', color: '#00a82d', imageUrl: '/plus.svg', onClick: () => handlePathButtonClick('/create-item') },
-    { id: 2, label: 'Home', onClick: () => console.log('Home button clicked') },
+    { id: 2, label: 'Home', imageUrl: './home.svg' },
   ]);
 
   const handlePathButtonClick = (path) => {
