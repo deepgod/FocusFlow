@@ -5,7 +5,9 @@ import styles from './StickyNote.module.css';
 export default function StickyNote() {
   return (
     <div className={styles.note}>
-        <p>Example Sticky Note</p>
+        <p>Welcome to your FocusFlow!</p>
+      
+
     </div>
   );
 }
