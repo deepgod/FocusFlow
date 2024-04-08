@@ -13,7 +13,7 @@ const Navbar = () => {
 
   return (
     <nav className={styles.navbar}>
-      <a href="/">
+      <a href="/home">
         <Image src="/ff_logo.png" alt="FocusFlow logo" width={40} height={40} />
         <span className={styles.navbar_brand}>FocusFlow</span>
       </a>
