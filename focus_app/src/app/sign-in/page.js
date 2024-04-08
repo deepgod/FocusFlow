@@ -4,7 +4,6 @@ import Navbar from '../components/Navbar';
 import LoginScreen from '../components/LoginScreen';
 import styles from './page.css'
 
-
 export default function Home() {
   // Adds a class to the body element when the component mounts
   useEffect(() => {

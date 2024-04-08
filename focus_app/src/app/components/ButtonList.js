@@ -21,7 +21,7 @@ const ButtonList = () => {
         <Button
           key={button.id} 
           label={button.label} 
-          color={button.color} 
+          color={button.color}
           onClick={button.onClick} 
           imageUrl={button.imageUrl}
         />

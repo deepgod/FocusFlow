@@ -13,10 +13,10 @@ const Navbar = () => {
 
   return (
     <nav className={styles.navbar}>
-      <Link href="/">
+      <a href="/">
         <Image src="/ff_logo.png" alt="FocusFlow logo" width={40} height={40} />
         <span className={styles.navbar_brand}>FocusFlow</span>
-      </Link>
+      </a>
       <button onClick={handleSignInClick}>
         Sign In
         <img src="/arrow.svg" alt="arrow icon" />
