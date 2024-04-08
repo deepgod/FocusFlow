@@ -7,6 +7,7 @@ const Button = ({ label, color, imageUrl, onClick }) => {
     <button className={styles.button} style={{ backgroundColor: color }} onClick={onClick}>
       {imageUrl && <img src={imageUrl} alt="Button Icon" style={{ height: '20px', width: 'auto' }} />}
       {label}
+
     </button>
   );
 };
