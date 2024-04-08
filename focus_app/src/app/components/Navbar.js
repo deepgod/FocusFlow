@@ -11,11 +11,9 @@ const Navbar = () => {
 
   const handleButtonClick = () => {
     if (isLoggedIn) {
-      // If user is logged in, log them out
       setIsLoggedIn(false);
       router.push("/");
     } else {
-      // If user is not logged in, redirect to sign-in page
       router.push("/sign-in");
     }
   };
