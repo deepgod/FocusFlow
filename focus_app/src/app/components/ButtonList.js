@@ -1,4 +1,3 @@
-/*
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import Button from "./Button";
@@ -31,10 +30,8 @@ const ButtonList = () => {
 };
 
 export default ButtonList;
-*/
 
-// ButtonList.js
-
+/*
 import React from "react";
 //import { useRouter } from "next/router";
 import Button from "./Button";
@@ -69,3 +66,4 @@ const ButtonList = () => {
 };
 
 export default ButtonList;
+*/
