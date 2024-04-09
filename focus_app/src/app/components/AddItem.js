@@ -45,6 +45,7 @@ const AddItem = ({ onSubmit, onCancel }) => {
             name="url"
             value={newItem.url}
             onChange={handleChange}
+            placeholder="'home' 'dev' 'rocket' 'plus'"
           />
         </div>
         <div>
