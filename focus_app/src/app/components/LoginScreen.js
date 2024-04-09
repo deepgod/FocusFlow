@@ -24,7 +24,7 @@ const LoginScreen = () => {
             <input type="password" name="password" id="password" placeholder="Password" required />
             <button type="submit" onClick={handleSignIn} className={styles.submitButton}>Sign In</button>
         </form>
-        </div>
+      </div>
     </div>
   );
 };
