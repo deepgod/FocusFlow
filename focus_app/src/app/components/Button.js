@@ -1,13 +1,18 @@
-// Button.js
 import React from 'react';
 import styles from './Button.module.css';
 
 const Button = ({ label, color, imageUrl, onClick }) => {
+  const defaultImageUrl = './x_pic.svg';
+
   return (
     <button className={styles.button} style={{ backgroundColor: color }} onClick={onClick}>
-      {imageUrl && <img src={imageUrl} alt="Button Icon" style={{ height: '20px', width: 'auto' }} />}
+      <img 
+        src={imageUrl || defaultImageUrl}
+        alt="Button Icon" 
+        style={{ height: '20px', width: 'auto' }} 
+        onError={(e) => { e.target.src = defaultImageUrl; }}
+      />
       {label}
-
     </button>
   );
 };

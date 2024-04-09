@@ -1,33 +1,31 @@
 import React, { useState } from "react";
 import styles from './AddItem.module.css';
 
-const AddItem = () => {
+const AddItem = ({ onSubmit, onCancel }) => {
   const [newItem, setNewItem] = useState({
     title: "",
     url: "",
     content: ""
   });
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setNewItem(prevItem => ({
-      ...prevItem,
-      [name]: value
-    }));
-  };
-
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("New Item Data:", newItem);
-    setNewItem({
-      title: "",
-      url: "",
-      content: ""
-    });
+    const newButton = {
+      id: Math.random(),
+      label: newItem.title,
+      imageUrl: newItem.url,
+    };
+    onSubmit(newButton);
+    setNewItem({ title: "", url: "", content: "" });
+  };
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setNewItem({ ...newItem, [name]: value });
   };
 
   return (
-    <div className="addItemContainer">
+    <div className={styles.addItemContainer}>
       <form onSubmit={handleSubmit}>
         <div>
           <label htmlFor="titleTextbox">Title:</label>
@@ -61,6 +59,7 @@ const AddItem = () => {
           ></textarea>
         </div>
         <button type="submit">Create</button>
+        <button type="button" onClick={onCancel}>Cancel</button>
       </form>
     </div>  
   );
