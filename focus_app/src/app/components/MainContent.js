@@ -12,6 +12,7 @@ export default function MainContent() {
   const [buttons, setButtons] = useState([
     { id: 1, label: 'Add', color: '#00a82d', imageUrl: '/plus.svg', onClick: () => setShowAddItem(true) },
     { id: 2, label: 'Home', imageUrl: './home.svg' },
+    { id: 3, label: 'UserDefi 1', imageUrl: '/ff_logo.png'}
   ]);
 
   const handleAddButton = (newButton) => {
