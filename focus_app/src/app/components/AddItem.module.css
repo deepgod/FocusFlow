@@ -1,101 +1,64 @@
-.container {
-  max-width: 400px;
-  margin: 0 auto;
-  padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  background-color: #f9f9f9; 
-}
-
-.container div {
-  margin-bottom: 10px;
-}
-
-.container label {
-  display: block;
-  font-weight: bold;
-  color: #333; 
-}
-
-.container input[type="text"],
-.container textarea {
-  width: 100%;
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
-
-.container textarea {
-  resize: vertical;
-}
-
-.container input[type="text"]:focus,
-.container textarea:focus {
-  border-color: #007bff; 
-  outline: none; 
-}
-
-.container textarea {
-  min-height: 100px; 
-}
-
-.container button {
-  background-color: #007bff; 
-  color: #fff; 
-  padding: 8px 16px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.container button:hover {
-  background-color: #0056b3;
-}
-
-
-
-/*
 .addItemContainer {
-  width: 300px;
+  max-width: 600px;
   margin: 20px auto;
   padding: 20px;
   border: 1px solid #ccc;
-  border-radius: 5px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  background-color: #f9f9f9;
 }
 
-.addItemContainer > div {
-  margin-bottom: 10px;
+.form {
+  display: flex;
+  flex-direction: column;
 }
 
-.addItemContainer label {
-  display: block;
-  font-weight: bold;
+.formGroup {
+  margin-bottom: 20px;
 }
 
-.addItemContainer input[type="text"],
-.addItemContainer textarea {
-  width: calc(100% - 20px);
-  padding: 8px;
+.inputField, .textareaField {
+  width: 90%;
+  padding: 10px;
+  margin-top: 8px;
   border: 1px solid #ccc;
-  border-radius: 3px;
+  border-radius: 4px;
 }
 
-.addItemContainer textarea {
-  resize: vertical;
+.textareaField {
+  resize: vertical; /* Allows the user to resize the textarea vertically */
 }
 
-.addItemContainer button {
-  background-color: #007bff;
-  color: #fff;
+.buttonGroup {
+  display: flex;
+  justify-content: space-between;
+}
+
+.button {
   padding: 10px 20px;
   border: none;
-  border-radius: 3px;
+  border-radius: 4px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  color: white;
+  flex-grow: 1; /* Ensures buttons take up equal space */
 }
 
-.addItemContainer button:hover {
+.createButton {
+  background-color: #007bff; /* A shade of blue */
+  margin-right: 10px; /* Adds some space between the buttons */
+}
+
+.createButton:hover {
   background-color: #0056b3;
 }
-*/
+
+.cancelButton {
+  background-color: #6c757d; /* A shade of gray */
+}
+
+.cancelButton:hover {
+  background-color: #5a6268;
+}
+.error {
+  color: #d32f2f; /* Red color for errors */
+  margin-bottom: 15px; /* Space before the form starts */
+}
