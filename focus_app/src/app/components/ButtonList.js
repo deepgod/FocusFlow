@@ -2,7 +2,7 @@ import React from "react";
 import Button from "./Button";
 import styles from "./ButtonList.module.css";
 
-const ButtonList = ({ buttons, onSelectItem }) => {
+const ButtonList = ({ buttons, onSelectItem, onAddItemClick }) => {
   const handleButtonClick = (button) => {
     if (button.onClick) {
       button.onClick();
@@ -14,6 +14,13 @@ const ButtonList = ({ buttons, onSelectItem }) => {
 
   return (
     <div className={styles.buttonList}>
+      <div key={0} onClick={onAddItemClick}>
+        <Button
+          label="Add"
+          color="#00a82d"
+          imageUrl="/plus.svg"
+        />
+      </div>
       {buttons.map(button => (
         <div key={button.id} onClick={() => handleButtonClick(button)}>
           <Button

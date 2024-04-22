@@ -12,7 +12,7 @@ const AddItem = ({ onSubmit, onCancel }) => {
   const [newItem, setNewItem] = useState(initialNewItemState);
   const [errorMessage, setErrorMessage] = useState('');
 
-  const handleSubmit = async (e) => { // Mark the function as async
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const { title, url, content } = newItem;
 
@@ -23,14 +23,17 @@ const AddItem = ({ onSubmit, onCancel }) => {
     }
 
     try {
-      await axios.post('/api/notes', newItem); // Use correct API endpoint
+      await axios.post('/api/notes', newItem);
       console.log('Note submitted successfully');
-      onSubmit({ ...newItem }); // You may want to pass the newItem to onSubmit after it's successfully posted
+      
+      // Call onSubmit with the newItem
+      onSubmit(newItem);
+      
       setNewItem(initialNewItemState);
       setErrorMessage('');
-    } catch (e) {
-      console.error('Error submitting note', e);
-      setErrorMessage('Failed to submit note. Please try again.'); // Set error message if request fails
+    } catch (error) {
+      console.error('Error submitting note', error);
+      setErrorMessage('Failed to submit note. Please try again.');
     }
   };
 
