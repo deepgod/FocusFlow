@@ -244,6 +244,7 @@ export default function MainContent() {
         <div className={styles.overlay}>
           <div className={styles.overlayContent}>
             <AddItem onSubmit={handleAddButton} onCancel={() => setShowAddItem(false)} />
+            {/* Maybe here add the edit and delete icons*/}
           </div>
         </div>
       )}
