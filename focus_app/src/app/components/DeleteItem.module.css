@@ -1,0 +1,46 @@
+/* DeleteItem.module.css */
+
+.deleteItemContainer {
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .deleteItemContainer p {
+    margin-bottom: 20px;
+  }
+  
+  .buttonGroup {
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  .button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .deleteButton {
+    background-color: #ff6347;
+    color: #fff;
+  }
+  
+  .deleteButton:hover {
+    background-color: #d4462e;
+  }
+  
+  .cancelButton {
+    margin-left: 10px;
+    background-color: #ccc;
+    color: #333;
+  }
+  
+  .cancelButton:hover {
+    background-color: #b3b3b3;
+  }
+  

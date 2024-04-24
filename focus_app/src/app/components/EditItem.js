@@ -1,52 +1,43 @@
-
 import React, { useState } from "react";
-import styles from './AddItem.module.css';
+import styles from './EditItem.module.css';
 import axios from 'axios';
 
-const AddItem = ({ onSubmit, onCancel }) => {
-  const initialNewItemState = {
-    title: "",
-    url: "",
-    content: ""
-  };
-
-  const [newItem, setNewItem] = useState(initialNewItemState);
+const EditItem = ({ item, onSubmit, onCancel }) => {
+  const [editedItem, setEditedItem] = useState(item);
   const [errorMessage, setErrorMessage] = useState('');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const { title, url, content } = newItem;
+
+    const { title, url, content } = editedItem;
 
     if (!title || !url || !content) {
-      const missingFields = ['Title', 'URL', 'Content'].filter(field => !newItem[field.toLowerCase()]);
-      setErrorMessage(`Please fill in the following field(s): ${missingFields.join(', ')}`);
+      setErrorMessage('Please fill in all fields.');
       return;
     }
 
     try {
-      await axios.post('/api/notes', newItem);
-      console.log('Note submitted successfully');
-      
-      // Call onSubmit with the newItem
-      onSubmit(newItem);
-      
-      setNewItem(initialNewItemState);
+      await axios.put(`/api/notes/${item.id}`, editedItem);
+      console.log('Item updated successfully');
+
+      // Call onSubmit with the editedItem
+      onSubmit(editedItem);
+
       setErrorMessage('');
     } catch (error) {
-      console.error('Error submitting note', error);
-      setErrorMessage('Failed to submit note. Please try again.');
+      console.error('Error updating item', error);
+      setErrorMessage('Failed to update item. Please try again.');
     }
   };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setNewItem({ ...newItem, [name]: value });
+    setEditedItem({ ...editedItem, [name]: value });
     if (errorMessage) setErrorMessage('');
   };
-  
 
   return (
-    <div className={styles.addItemContainer}>
+    <div className={styles.editItemContainer}>
       {errorMessage && <p className={styles.error}>{errorMessage}</p>}
       <form onSubmit={handleSubmit} className={styles.form}>
         <div className={styles.formGroup}>
@@ -56,7 +47,7 @@ const AddItem = ({ onSubmit, onCancel }) => {
             id="titleTextbox" 
             name="title"
             className={styles.inputField}
-            value={newItem.title}
+            value={editedItem.title}
             onChange={handleChange}
           />
         </div>
@@ -67,7 +58,7 @@ const AddItem = ({ onSubmit, onCancel }) => {
             id="urlTextbox" 
             name="url"
             className={styles.inputField}
-            value={newItem.url}
+            value={editedItem.url}
             onChange={handleChange}
             placeholder="'home' 'dev' 'rocket' 'plus'"
           />
@@ -78,12 +69,12 @@ const AddItem = ({ onSubmit, onCancel }) => {
             id="contentTextarea"
             name="content"
             className={styles.textareaField}
-            value={newItem.content}
+            value={editedItem.content}
             onChange={handleChange}
           ></textarea>
         </div>
         <div className={styles.buttonGroup}>
-          <button type="submit" className={`${styles.button} ${styles.createButton}`}>Create</button>
+          <button type="submit" className={`${styles.button} ${styles.updateButton}`}>Update</button>
           <button type="button" onClick={onCancel} className={`${styles.button} ${styles.cancelButton}`}>Cancel</button>
         </div>
       </form>
@@ -91,4 +82,4 @@ const AddItem = ({ onSubmit, onCancel }) => {
   );
 };
 
-export default AddItem;
+export default EditItem;
