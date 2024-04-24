@@ -1,5 +1,28 @@
+/*
 .buttonList {
   display: flex;
   flex-direction: column;
   gap: 10px; 
+}
+*/
+
+/* ButtonList.module.css */
+.buttonList {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.deleteButton {
+  background-color: #ff6347;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  margin-left: 5px;
+}
+
+.itemContainer {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
 }
