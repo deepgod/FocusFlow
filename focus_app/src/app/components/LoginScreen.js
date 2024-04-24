@@ -2,9 +2,10 @@ import React, { useState } from 'react';
 import styles from "./LoginScreen.module.css";
 import { useAuth } from './authContext';
 import { useRouter } from "next/navigation";
+import axios from 'axios';  // Import Axios
 
 const LoginScreen = () => {
-  const [isSignUp, setIsSignUp] = useState(false); // State to toggle between login and signup
+  const [isSignUp, setIsSignUp] = useState(false);
   const [userData, setUserData] = useState({
     username: '',
     fullName: '',
@@ -20,17 +21,42 @@ const LoginScreen = () => {
     setUserData(prev => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     if (isSignUp) {
       if (userData.password !== userData.confirmPassword) {
         alert('Passwords do not match!');
         return;
       }
-      console.log('Signup:', userData);
+      // Sign up logic with Axios
+      try {
+        const response = await axios.post('/api/signup', {
+          username: userData.username,
+          fullName: userData.fullName,
+          email: userData.email,
+          password: userData.password
+        });
+        console.log('Signup Success:', response.data);
+        setIsLoggedIn(true);
+        router.push("/home");
+      } catch (error) {
+        console.error('Signup Error:', error.response.data);
+        alert('Signup Failed!');
+      }
     } else {
-      setIsLoggedIn(true);
-      router.push("/home");
+      // Sign in logic with Axios
+      try {
+        const response = await axios.post('/api/login', {
+          username: userData.username,
+          password: userData.password
+        });
+        console.log('Login Success:', response.data);
+        setIsLoggedIn(true);
+        router.push("/home");
+      } catch (error) {
+        console.error('Login Error:', error.response.data);
+        alert('Login Failed!');
+      }
     }
   };
 
