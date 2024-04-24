@@ -30,3 +30,6 @@ mongoose.connect(conn_str).then(() => {
 .catch(err => {
     console.log(`Error in DB Connection ${err}`); 
 })
+
+const users = require('./routes/api/users');
+app.use('/api/users', users);
