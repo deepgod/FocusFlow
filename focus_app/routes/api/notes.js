@@ -22,5 +22,23 @@ router.get('/', async (req, res) => {
       res.status(500).json({ error: 'Internal server error' });
     }
 });
+
+router.delete('/:id', async (req, res) => {
+  try {
+      const note = await Note.findById(req.params.id);
+      if (!note) {
+          return res.status(404).json({ msg: 'Note not found' });
+      }
+      await note.remove();
+      res.json({ msg: 'Note removed' });
+  } catch (err) {
+      console.error('Error deleting note:', err);
+      if (err.kind === 'ObjectId') {
+          return res.status(404).json({ msg: 'Note not found' });
+      }
+      res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
   
 module.exports = router;
