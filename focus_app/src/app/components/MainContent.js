@@ -166,6 +166,7 @@ export default function MainContent() {
   const [selectedItemContent, setSelectedItemContent] = useState(null);
   const [selectedItemId, setSelectedItemId] = useState(null);
   const [buttons, setButtons] = useState([]);
+  const [isItemSelected, setIsItemSelected] = useState(false);
 
   useEffect(() => {
     fetchItems();
@@ -189,6 +190,7 @@ export default function MainContent() {
 
   const handleSelectItem = (itemContent) => {
     setSelectedItemContent(itemContent);
+    setIsItemSelected(true);
   };
 
   const handleAddButton = async (newButton) => {
@@ -196,6 +198,7 @@ export default function MainContent() {
       setButtons([newButton, ...buttons]);
       setShowAddItem(false);
       setSelectedItemContent(newButton.content);
+      setIsItemSelected(true);
       await fetchItems();
     } catch (error) {
       console.error('Error adding new item:', error);
@@ -205,11 +208,11 @@ export default function MainContent() {
   const handleEditItem = (item) => {
     setSelectedItemId(item.id);
     setSelectedItemContent(item.content);
+    setIsItemSelected(true);
   };
 
   const handleUpdateItem = async (updatedItem) => {
     try {
-      console.log(updatedItem); // Add this line
       await axios.put(`/api/notes/${selectedItemId}`, updatedItem);
       setSelectedItemId(null);
       await fetchItems();
@@ -226,6 +229,7 @@ export default function MainContent() {
       console.error('Error deleting item:', error);
     }
   };  
+
   return (
     <div className={styles.mainContent}>
       <div className={styles.card}>
@@ -238,12 +242,10 @@ export default function MainContent() {
         />
       </div>
       <div className={styles.content}>
-        {selectedItemId ? (
-          <EditItem item={selectedItemContent} onSubmit={handleUpdateItem} onCancel={() => setSelectedItemId(null)} />
+        {isItemSelected ? (
+          selectedItemContent && <p>{selectedItemContent}</p>
         ) : (
-          selectedItemContent ? (
-            <StickyNote />
-          ) : null
+          <StickyNote />
         )}
       </div>
       {showAddItem && (
@@ -255,5 +257,4 @@ export default function MainContent() {
       )}
     </div>
   );
-  
 }
