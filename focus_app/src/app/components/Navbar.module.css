@@ -1,3 +1,4 @@
+/*
 .navbar {
     background-color: #ffffff;
     color: #5f6368;
@@ -48,6 +49,60 @@
 
 .navbar button:hover {
     background-color: #0056b3;
+}
+
+.navbar button img {
+    width: 20px;
+    height: auto;
+    margin-right: 0px;
+}
+*/
+
+.navbar {
+    background: linear-gradient(to right, #dddddd, #bbbbbb); /* Adjusted gradient background with darker gray */
+    color: #333333; /* Text color */
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+    position: relative;
+    margin: 0;
+    border: 1px solid #999999; /* Darker border color */
+    border-radius: 10px;
+}
+
+.navbar a {
+    color: inherit;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.8em;
+    display: flex;
+    justify-content: center;
+}
+  
+.navbar_brand {
+    margin-left: 10px;
+    margin-top: 3.5px;
+}
+
+.navbar button {
+    background-color: #007bff; /* Solid background color for sign-in button */
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+
+    transition: all 0.2s ease-in-out;
+}
+
+.navbar button:hover {
+    background-color: #0056b3; /* Darker background color on hover */
 }
 
 .navbar button img {

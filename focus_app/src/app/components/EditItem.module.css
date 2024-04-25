@@ -1,5 +1,4 @@
-/* EditItem.module.css */
-
+/*
 .editItemContainer {
     max-width: 400px;
     margin: 0 auto;
@@ -49,6 +48,60 @@
   }
   
   .error {
+    color: #f00;
+    margin-bottom: 10px;
+  }
+  */
+
+  .editItemContainer {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+  }
+  
+  .editItemContainer .formGroup {
+    margin-bottom: 15px;
+  }
+  
+  .editItemContainer .label {
+    font-weight: bold;
+  }
+  
+  .editItemContainer .inputField,
+  .editItemContainer .textareaField {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    box-sizing: border-box;
+  }
+  
+  .editItemContainer .buttonGroup {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .editItemContainer .button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .editItemContainer .updateButton {
+    background-color: #4caf50;
+    color: #fff;
+  }
+  
+  .editItemContainer .cancelButton {
+    background-color: #f44336;
+    color: #fff;
+  }
+  
+  .editItemContainer .error {
     color: #f00;
     margin-bottom: 10px;
   }
