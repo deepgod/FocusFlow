@@ -70,13 +70,13 @@ const ButtonList = ({ buttons, onSelectItem, onAddItemClick, onDeleteItem, onEdi
             className={styles.deleteButton} 
             onClick={() => onDeleteItem(button.id)}
           >
-            Delete
+            <img src="/delete.svg"/>
           </button>
           <button 
             className={styles.editButton} 
             onClick={() => onEditItem(button)}
           >
-            Edit
+            <img src="/edit.svg"/>
           </button>
         </div>
       ))}
