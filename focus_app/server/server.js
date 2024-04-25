@@ -9,8 +9,7 @@ const nextApp = next({ dev });
 const handle = nextApp.getRequestHandler();
 
 const app = express();
-//const port = process.env.PORT || 5000;
-const port = process.env.PORT || 5001;
+const port = process.env.PORT || 5000;
 
 app.use(cors({ origin: true, credentials: true }));
 app.use(bodyParser.json());
