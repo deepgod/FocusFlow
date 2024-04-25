@@ -23,6 +23,7 @@ const Button = ({ label, color, imageUrl, onClick }) => {
         alt="Button Icon" 
         style={{ height: '20px', width: 'auto' }} 
         onError={(e) => { e.target.src = defaultImageUrl; }}
+        className={styles.buttonIcon}
       />
       {label}
     </button>
