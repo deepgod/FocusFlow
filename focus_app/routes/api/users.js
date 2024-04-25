@@ -35,46 +35,46 @@ userRouter.post("/signup", async(req, res) => {
     } catch (err) {
         res.status(500).json({ error: err.message });
     }
-    });
+});
 
-    //Login Route
-    userRouter.post("/login", async(req, res) => {
-        try {
-            const {email, password} = req.body;
-            if (!email || password) {
-                return res.status(400).json({ msg: "Please enter all the fields"});
-            }
-
-            const user = await User.findOne({ email });
-            if (!user) {
-                return res
-                .status(400)
-                .send({ msg: "User with this email does not exist."});
-            }
-
-            const isMatch = await bycryptjs.compare(password, user.password);
-
-            if (!isMatch) {
-                return res.status(400).send({msg: "Incorrect password."})
-            }
-            const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET);
-            res.json({token, user: { id: user._id, username: user.username } });
-        } catch (err) {
-            res.status(500).json({ error: err.message});
+//Login Route
+userRouter.post("/login", async(req, res) => {
+    try {
+        const {email, password} = req.body;
+        if (!email || password) {
+            return res.status(400).json({ msg: "Please enter all the fields"});
         }
-    });
 
-    // TO CHECK IF TOKEN IS VALID 
-    userRouter.post("/tokenlsValid", async (req, res) => { 
-        try { 
-            const token = req.header("Authorization"); 
-            if (!token) return res.json(false); 
-            const verified = jwt.verify(tokenParts[1], process.env.JWT_SECRET); 
-            if (!verified) return res.json(false); 
-            const user = await User.findByld(verified.id); 
-            if (!user) return res.json(false); 
-            return res.json(true); 
-        } catch (err) { 
-            res.status(500).json({ error: err.message }); 
-        } 
-    }); 
+        const user = await User.findOne({ email });
+        if (!user) {
+            return res
+            .status(400)
+            .send({ msg: "User with this email does not exist."});
+        }
+
+        const isMatch = await bcryptjs.compare(password, user.password);
+
+        if (!isMatch) {
+            return res.status(400).send({msg: "Incorrect password."})
+        }
+        const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET);
+        res.json({token, user: { id: user._id, username: user.username } });
+    } catch (err) {
+        res.status(500).json({ error: err.message});
+        }
+});
+
+// TO CHECK IF TOKEN IS VALID 
+ userRouter.post("/tokenlsValid", async (req, res) => { 
+    try { 
+        const token = req.header("Authorization"); 
+        if (!token) return res.json(false); 
+        const verified = jwt.verify(tokenParts[1], process.env.JWT_SECRET); 
+        if (!verified) return res.json(false); 
+        const user = await User.findByld(verified.id); 
+        if (!user) return res.json(false); 
+        return res.json(true); 
+    } catch (err) { 
+        res.status(500).json({ error: err.message }); 
+    } 
+}); 
