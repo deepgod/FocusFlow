@@ -8,7 +8,8 @@ const Button = ({ label, color, imageUrl, onClick }) => {
     home: './home.svg',
     rocket: './rocket.svg',
     plus: './plus.svg',
-    dev: './dev.svg'
+    dev: './dev.svg',
+    delete: './delete.svg'
   };
   
   if (imagePaths.hasOwnProperty(imageUrl)) {

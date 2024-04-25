@@ -68,7 +68,7 @@ const ButtonList = ({ buttons, onSelectItem, onAddItemClick, onDeleteItem, onEdi
           />
           <button 
             className={styles.deleteButton} 
-            onClick={() => onDeleteItem(button)}
+            onClick={() => onDeleteItem(button.id)}
           >
             Delete
           </button>

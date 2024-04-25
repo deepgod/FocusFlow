@@ -209,6 +209,7 @@ export default function MainContent() {
 
   const handleUpdateItem = async (updatedItem) => {
     try {
+      console.log(updatedItem); // Add this line
       await axios.put(`/api/notes/${selectedItemId}`, updatedItem);
       setSelectedItemId(null);
       await fetchItems();
@@ -216,7 +217,7 @@ export default function MainContent() {
       console.error('Error updating item:', error);
     }
   };
-
+  
   const handleDeleteItem = async (itemId) => {
     try {
       await axios.delete(`/api/notes/${itemId}`);
@@ -224,8 +225,7 @@ export default function MainContent() {
     } catch (error) {
       console.error('Error deleting item:', error);
     }
-  };
-
+  };  
   return (
     <div className={styles.mainContent}>
       <div className={styles.card}>
@@ -238,16 +238,22 @@ export default function MainContent() {
         />
       </div>
       <div className={styles.content}>
-        {selectedItemId ? <EditItem item={selectedItemContent} onSubmit={handleUpdateItem} onCancel={() => setSelectedItemId(null)} /> : selectedItemContent || <StickyNote />}
+        {selectedItemId ? (
+          <EditItem item={selectedItemContent} onSubmit={handleUpdateItem} onCancel={() => setSelectedItemId(null)} />
+        ) : (
+          selectedItemContent ? (
+            <StickyNote />
+          ) : null
+        )}
       </div>
       {showAddItem && (
         <div className={styles.overlay}>
           <div className={styles.overlayContent}>
             <AddItem onSubmit={handleAddButton} onCancel={() => setShowAddItem(false)} />
-            {/* Maybe here add the edit and delete icons*/}
           </div>
         </div>
       )}
     </div>
   );
+  
 }
