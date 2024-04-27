@@ -10,15 +10,29 @@
 .buttonList {
   display: flex;
   flex-wrap: wrap;
+  gap: 10px; 
 }
 
 .deleteButton {
-  background-color: #ff6347;
-  color: #fff;
   border: none;
-  padding: 5px 10px;
-  cursor: pointer;
-  margin-left: 5px;
+  border-radius: 10px;
+  width: 30px;
+  height: 30px;
+}
+
+.deleteButton:hover {
+  background-color: #d9d9d9;
+}
+
+.editButton {
+  border: none;
+  border-radius: 10px;
+  width: 30px;
+  height: 30px;
+}
+
+.editButton:hover {
+  background-color: #d9d9d9;
 }
 
 .itemContainer {

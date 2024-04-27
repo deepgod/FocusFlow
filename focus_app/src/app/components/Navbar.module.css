@@ -59,14 +59,14 @@
 */
 
 .navbar {
-    background: linear-gradient(to right, #dddddd, #bbbbbb); /* Adjusted gradient background with darker gray */
+    background-color: #ffffff;
     color: #333333; /* Text color */
     display: flex;
     justify-content: space-between;
     padding: 1rem 2rem;
     position: relative;
     margin: 0;
-    border: 1px solid #999999; /* Darker border color */
+    border: 1px solid #d9d9d9;
     border-radius: 10px;
 }
 
