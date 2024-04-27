@@ -1,33 +1,34 @@
 const express = require("express");
-const bcryptjs = require("bcryptjs");
+const bc = require("bcryptjs")
 const userRouter = express.Router();
 const jwt = require("jsonwebtoken");
 const auth = require("../../middleware/auth");
-const User = require('../../models/User');
+const User = require('../../models/user.model');
 
 //Signup Route
 userRouter.post("/signup", async(req, res) => {
     try {
-        const { email, password, confirmPassword, username } = req.body;
-        if (!email || !password || !username || !confirmPassword) {
-            return res.status(400).json({msg: "Please enter input for all the fields"});
+        const { email, password, confirmPassword, username, fullName } = req.body;
+        if (!email || !password || !username || !confirmPassword || !fullName) {
+            return res.status(400).json({msg: "Please enter input for all the fields" + " email: "+ email + " password: "+ password + " confirmPasword: "  + confirmPassword + " fullName: " + fullName });
         }
         if (password.length < 6) {
             return res
             .status(400)
             .json({msg: "Password should be at least 6 characters"});
         }
-        if (confirmPassword !== password) {
-            return res.status(400).json({ msg: "Both the passwords don't match"});
-        }
+        // if (confirmPassword !== password) {
+        //     return res.status(400).json({ msg: "Both the passwords don't match"});
+        // }
         const existingUser = await User.findOne({ email });
-        if (extistingUser) {
+        if (existingUser) {
             return res
             .status(400)
             .json({msg: "User with the same email already exists."})
         }
-        const hashedPassword = await bycryptjs.hash(password, 8);
-        const newUser = new User({ email, password: hashedPassword, username });
+        // const hashedPassword = await bycryptjs.hash(password, 8);
+        const hashedPassword = await bc.hash(password, 8);
+        const newUser = new User({ email, password: hashedPassword, username, fullName });
 
         const savedUser = await newUser.save();
         console.log(savedUser.username);
@@ -40,24 +41,25 @@ userRouter.post("/signup", async(req, res) => {
 //Login Route
 userRouter.post("/login", async(req, res) => {
     try {
-        const {email, password} = req.body;
-        if (!email || password) {
-            return res.status(400).json({ msg: "Please enter all the fields"});
+        const {username, password} = req.body;
+        if (!username || !password) {
+            return res.status(400).json({ msg: "Please enter all the fields username: " + username + " password: " + password});
         }
 
-        const user = await User.findOne({ email });
+        const user = await User.findOne({ username });
         if (!user) {
             return res
             .status(400)
             .send({ msg: "User with this email does not exist."});
         }
 
-        const isMatch = await bcryptjs.compare(password, user.password);
+        const isMatch = await bc.compare(password, user.password);
 
         if (!isMatch) {
             return res.status(400).send({msg: "Incorrect password."})
         }
         const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET);
+
         res.json({token, user: { id: user._id, username: user.username } });
     } catch (err) {
         res.status(500).json({ error: err.message});
@@ -78,3 +80,5 @@ userRouter.post("/login", async(req, res) => {
         res.status(500).json({ error: err.message }); 
     } 
 }); 
+
+module.exports = userRouter;

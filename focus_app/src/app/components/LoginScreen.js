@@ -30,23 +30,24 @@ const LoginScreen = () => {
       }
       // Sign up logic with Axios
       try {
-        const response = await axios.post('/api/signup', {
+        const response = await axios.post('/api/users/signup', {
           username: userData.username,
           fullName: userData.fullName,
           email: userData.email,
-          password: userData.password
+          password: userData.password,
+          confirmPassword: userData.confirmPassword
         });
         console.log('Signup Success:', response.data);
         setIsLoggedIn(true);
         router.push("/home");
       } catch (error) {
-        console.error('Signup Error:', error.response.data);
+        console.error('Signup Error:', error);
         alert('Signup Failed!');
       }
     } else {
       // Sign in logic with Axios
       try {
-        const response = await axios.post('/api/login', {
+        const response = await axios.post('/api/users/login', {
           username: userData.username,
           password: userData.password
         });

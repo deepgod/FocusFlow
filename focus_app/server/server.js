@@ -33,7 +33,9 @@ nextApp.prepare().then(() => {
 });
 
 const notesRouter = require('../routes/api/notes');
+const users = require("../routes/api/users")
 const c = require('config');
+app.use('/api/users', users);
 app.use('/api/notes', notesRouter);
 
 module.exports = app;
