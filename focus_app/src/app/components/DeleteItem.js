@@ -12,7 +12,6 @@ const DeleteItem = ({ onDelete, onCancel }) => {
     <div className={styles.deleteItemContainer}>
       <p>Are you sure you want to delete this item?</p>
       <div className={styles.buttonGroup}>
-        {/* Use a checkbox instead of a button */}
         <input type="checkbox" onChange={handleDelete} className={styles.deleteCheckbox} />
         <label>Delete</label>
         <button onClick={onCancel} className={styles.cancelButton}>Cancel</button>

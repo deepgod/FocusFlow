@@ -32,8 +32,8 @@ nextApp.prepare().then(() => {
     process.exit(1);
 });
 
-const notesRouter = require('../routes/api/notes');
-const users = require("../routes/api/users")
+const notesRouter = require('./routes/api/notes');
+const users = require("./routes/api/users")
 const c = require('config');
 app.use('/api/users', users);
 app.use('/api/notes', notesRouter);

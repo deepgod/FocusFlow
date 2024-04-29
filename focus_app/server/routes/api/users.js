@@ -2,7 +2,7 @@ const express = require("express");
 const bc = require("bcryptjs")
 const userRouter = express.Router();
 const jwt = require("jsonwebtoken");
-const auth = require("../../middleware/auth");
+const auth = require("../../../middleware/auth");
 const User = require('../../models/user.model');
 
 //Signup Route
@@ -67,7 +67,7 @@ userRouter.post("/login", async(req, res) => {
 });
 
 // TO CHECK IF TOKEN IS VALID 
- userRouter.post("/tokenlsValid", async (req, res) => { 
+ userRouter.post("/tokenIsValid", async (req, res) => { 
     try { 
         const token = req.header("Authorization"); 
         if (!token) return res.json(false); 
