@@ -68,10 +68,49 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: #ffcccc;
-  padding: 20px;
-  border: 1px solid #ff6666;
-  border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-  z-index: 9999; 
+  background-color: #ffdddd; /* Lighter shade for a softer appearance */
+  color: #721c24; /* Dark color for text to improve readability */
+  padding: 30px; /* Increased padding for a more spacious feel */
+  border: 1px solid #f5c2c7; /* Softer border color */
+  border-radius: 8px; /* More rounded corners */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Smoother shadow */
+  z-index: 9999;
+  animation: fadeIn 0.3s ease-in-out; /* Fade-in animation */
+  max-width: 90%; /* Max width to prevent overly wide boxes on small screens */
+  box-sizing: border-box; /* Ensures padding is included in width */
+  text-align: center; /* Center align the text */
+  display: flex;
+  flex-direction: column; /* Stacks children vertically */
+  justify-content: center; /* Centers children vertically */
+  align-items: center; /* Centers children horizontally */
+}
+
+.closeButton {
+  margin-top: 20px; /* Adds space between the message and the button */
+  padding: 8px 16px; /* Sufficient padding for button size */
+  font-size: 16px; /* Appropriate font size for readability */
+  color: #721c24; /* Keeps color consistent with the text */
+  background-color: #ffffff; /* Light background for the button */
+  border: none; /* Removes the border */
+  border-radius: 5px; /* Rounds the corners of the button */
+  cursor: pointer; /* Indicates that the element is clickable */
+  outline: none; /* Removes the outline to keep style clean */
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Adds subtle shadow for depth */
+  transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.closeButton:hover {
+  background-color: #e6b3b3; /* Changes background on hover for better interaction feedback */
+}
+
+/* Animation keyframes */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -60%);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
 }
